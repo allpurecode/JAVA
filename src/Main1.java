@@ -100,7 +100,7 @@ public class Main1 {
     }
 
 }
-
+//-----------------------------------------------------------------------------------------------------------------------------
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -154,48 +154,4 @@ public class Main1 {
     }
 }*/
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
-public class Main1 {
-    public static List<Integer> findArrayLeaders(int[] arr) {
-        List<Integer> leaders = new ArrayList<>();
-        int size = arr.length;
-
-        int maxFromRight = arr[size - 1];
-        leaders.add(maxFromRight);
-
-        for (int i = size - 2; i >= 0; i--) {
-            if (arr[i] >= maxFromRight) {
-                maxFromRight = arr[i];
-                leaders.add(maxFromRight);
-            }
-        }
-
-        return leaders;
-    }
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        // System.out.print("Enter the size of the array: ");
-        int n = sc.nextInt();
-        sc.nextLine();  // Consume the newline character
-
-        // System.out.print("Enter the elements of the array separated by commas: ");
-        String input = sc.nextLine();
-        String[] inputArray = input.split(", ");
-        int[] arr = new int[n];
-
-        for (int i = 0; i < n; i++) {
-            arr[i] = Integer.parseInt(inputArray[i].trim());
-        }
-
-        List<Integer> result = findArrayLeaders(arr);
-
-        // System.out.print("Leaders in the array: ");
-        for (int i = result.size() - 1; i >= 0; i--) {
-            System.out.print(result.get(i) + " ");
-        }
-    }
-}
