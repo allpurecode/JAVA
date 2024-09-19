@@ -286,6 +286,7 @@ public class DSA {
 
 //-------------------------------------------------------------------------------------------------------------------------
 //week 2
+// linear search
 
 /*import java.util.Scanner;
 
@@ -311,10 +312,10 @@ class DSA {
     }
 
 
- */
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*/
+// week 2--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // BINARY SEARCH
-public class DSA {
+/*public class DSA {
 
     // Function to perform binary search
     public static int binarySearch(int[] arr, int key) {
@@ -353,5 +354,197 @@ public class DSA {
         } else {
             System.out.println("Element found at index: " + result);
         }
+    }
+}*/
+//---------------------------------------------------------------------------------------------------------------------------------
+// uniform binary Search
+/*import java.util.Scanner;
+class DSA{
+    static int Linear(int a ,int b,int[] arr){
+        if (a<0){
+            return -1;
+        }
+        else if (arr[a]==b){
+            return a;
+        }
+        else{
+            return Linear(a-1,b,arr);
+        }
+
+    }
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++){
+            int s=sc.nextInt();
+            arr[i]=s;
+        }
+        int b=sc.nextInt();
+        System.out.print(Linear(n-1,b,arr));
+    }
+}
+
+*/
+// interpolation Search----------------------------------------------------------------------------------------------------------
+
+/*import java.util.*;
+class DSA{
+    static int Linear(int a ,int b,int[] arr){
+        if (a<0){
+            return -1;
+        }
+        else if (arr[a]==b){
+            return a;
+        }
+        else{
+            return Linear(a-1,b,arr);
+        }
+
+    }
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++){
+            int s=sc.nextInt();
+            arr[i]=s;
+        }
+        int b=sc.nextInt();
+        System.out.print(Linear(n-1,b,arr));
+    }
+}
+
+*/
+//Fibonacci Search-------------------------------------------------------------------------------------------------------------------
+/*import java.util.*;
+class DSA{
+    static int Linear(int a ,int b,int[] arr){
+        if (a<0){
+            return -1;
+        }
+        else if (arr[a]==b){
+            return a;
+        }
+        else{
+            return Linear(a-1,b,arr);
+        }
+
+    }
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++){
+            int s=sc.nextInt();
+            arr[i]=s;
+        }
+        int b=sc.nextInt();
+        System.out.print(Linear(n-1,b,arr));
+    }
+}*/
+
+// week 3-----------------------------------------------------------------------------------------------------------------------
+// bubble sort
+/*import java.util.Scanner;
+import java.util.Arrays;
+class DSA{
+    public static void main(String[] args){
+        int temp;
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int []arr = new int[n];
+        for(int i=0; i<n; i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        for(int i=0; i<n-1; i++)
+        {
+            boolean swapped = false;
+            for(int j=0; j<n-1-i; j++)
+            {
+                if(arr[j]>arr[j+1])
+                {
+                    temp = arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1] = temp;
+                    swapped = true;
+                }
+            }
+            if(!swapped) break;
+        }
+        for(int i=0; i<n; i++)
+        {
+            System.out.print((arr[i]));
+            if(n-1>i)
+            {
+                System.out.print(", ");
+            }
+        }
+    }
+}*/
+// selection sort -------------------------------------------------------------------------------------------------------------------------
+/*import java.util.Scanner;
+import java.util.Arrays;
+
+public class DSA {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int temp;
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        for (int i = 0; i < n - 1; i++) {
+            boolean swap = false;
+            for (int j = 0; j < n - 1 - i; j++) {
+                if (arr[j+1] < arr[j]) {
+                    temp = arr[j+1];
+                    arr[j+1] = arr[j];
+                    arr[j] = temp;
+                    swap = true;
+                }
+            }
+            if (!swap) break;
+        }
+        for (int i = 0; i < n; i++) {
+            System.out.print((arr[i]));
+            if (n - 1 > i) {
+                System.out.print(", ");
+            }
+        }
+    }
+}
+
+ */
+//insertion sort ----------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+class DSA {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int temp;
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        for (int i = 1; i < n; i++) {
+            int key = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
+            }
+            arr[j + 1] = key;
+
+        }
+        for (int k = 0; k < n; k++) {
+            System.out.print((arr[k]));
+            if (k<n-1) {
+                System.out.print(", ");
+            }
+        }
+
     }
 }
