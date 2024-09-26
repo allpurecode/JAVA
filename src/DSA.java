@@ -519,7 +519,10 @@ public class DSA {
 
  */
 //insertion sort ----------------------------------------------------------------------------------------------------------------------
+/*import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Stack;
+
 class DSA {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -546,5 +549,67 @@ class DSA {
             }
         }
 
+    }
+}*/
+// week 4-----------------------------------------------------------------------------------------------------------------------------
+//quick sort
+import java.util.Stack;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class DSA {
+    public static int partition(int[] arr, int low, int high) {
+        int pivot = arr[high];
+        int i = low - 1;
+
+        for (int j = low; j < high; j++) {
+            if (arr[j] < pivot) {
+                i++;
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[high];
+        arr[high] = temp;
+
+        return i + 1;
+    }
+
+
+    public static void quickSortIterative(int[] arr, int low, int high) {
+        Stack<int[]> stack = new Stack<>();
+        stack.push(new int[] { low, high });
+
+        while (!stack.isEmpty()) {
+            int[] range = stack.pop();
+            low = range[0];
+            high = range[1];
+
+            if (low < high) {
+                int pivotIndex = partition(arr, low, high);
+
+                // Push sub-arrays to be sorted
+                stack.push(new int[] { low, pivotIndex - 1 });
+                stack.push(new int[] { pivotIndex + 1, high });
+            }
+        }
+    }
+
+    // Main method to test quick sort
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter the length of the list");
+        int n=sc.nextInt();
+        int[] arr = new int[n];
+        System.out.println("enter the elements of the array ");
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+
+        quickSortIterative(arr, 0, arr.length - 1);
+        System.out.println(Arrays.toString(arr));
     }
 }
