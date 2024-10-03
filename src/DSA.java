@@ -992,7 +992,7 @@ public class DSA {
 }*/
 // week 5------------------------------------------------------------------------------------------------------------------------------------
 // IMPLEMENTATION OF STACKS
-class DSA {
+/*class DSA {
     private int maxSize;
     private int top;
     private int[] stackArray;
@@ -1065,6 +1065,50 @@ class StackExample {
 
         stack.pop(); // 50 should be popped
         stack.pop(); // 40 should be popped
+    }
+}
+*/
+// BLANCED PARENTHESE---------------------------------------------------------------------------------------------------------
+import java.util.Stack;
+
+class BalancedParenthesisChecker {
+    // Method to check if parentheses are balanced
+    public static boolean isBalanced(String expression) {
+        Stack<Character> stack = new Stack<>();
+
+        for (int i = 0; i < expression.length(); i++) {
+            char current = expression.charAt(i);
+
+            // Push open parentheses onto the stack
+            if (current == '(' || current == '{' || current == '[') {
+                stack.push(current);
+            }
+            // If it's a closing parenthesis, check the top of the stack
+            else if (current == ')' || current == '}' || current == ']') {
+                // If stack is empty, it means there's no corresponding opening parenthesis
+                if (stack.isEmpty()) {
+                    return false;
+                }
+                char top = stack.pop();
+                // Check if the current closing parenthesis matches the last open one
+                if ((current == ')' && top != '(') ||
+                        (current == '}' && top != '{') ||
+                        (current == ']' && top != '[')) {
+                    return false;
+                }
+            }
+        }
+
+        // If stack is empty, all parentheses were matched; otherwise, they are unbalanced
+        return stack.isEmpty();
+    }
+
+    public static void main(String[] args) {
+        String expression1 = "{()()}";
+        String expression2 = "{()[)}";
+
+        System.out.println(expression1 + " : " + isBalanced(expression1));  // true
+        System.out.println(expression2 + " : " + isBalanced(expression2));  // false
     }
 }
 
