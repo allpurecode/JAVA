@@ -553,6 +553,7 @@ class DSA {
 }*/
 //------------------------------------------------------------------------------------------------------------------------------
 // fibonacci search
+
 import java.util.*;
 
 /*class DSA {
@@ -826,7 +827,7 @@ public class DSA{
     }
 }*/
 // RADIX SORT-----------------------------------------------------------------------------------------
-import java.util.Arrays;
+/*import java.util.Arrays;
 import java.util.Scanner;
 
 class DSA {
@@ -988,5 +989,82 @@ public class DSA {
 
         printArray(arr);
     }
+}*/
+// week 5------------------------------------------------------------------------------------------------------------------------------------
+class DSA {
+    private int maxSize;
+    private int top;
+    private int[] stackArray;
+
+    // Constructor
+    public DSA(int size) {
+        this.maxSize = size;
+        this.stackArray = new int[maxSize];
+        this.top = -1;  // Initialize the top to -1, indicating an empty stack
+    }
+
+    // Method to push an element onto the stack
+    public void push(int value) {
+        if (isFull()) {
+            System.out.println("Stack is full. Cannot push " + value);
+        } else {
+            stackArray[++top] = value; // Increment top, then insert value
+            System.out.println(value + " pushed to stack.");
+        }
+    }
+
+    // Method to pop an element from the stack
+    public int pop() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty. Cannot pop.");
+            return -1;  // Return -1 to indicate stack is empty
+        } else {
+            int poppedValue = stackArray[top--]; // Return the top value, then decrement top
+            System.out.println(poppedValue + " popped from stack.");
+            return poppedValue;
+        }
+    }
+
+    // Method to peek at the top element of the stack
+    public int peek() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty. Nothing to peek.");
+            return -1; // Return -1 to indicate stack is empty
+        } else {
+            System.out.println("Top of stack: " + stackArray[top]);
+            return stackArray[top];
+        }
+    }
+
+    // Method to check if the stack is empty
+    public boolean isEmpty() {
+        return top == -1;
+    }
+
+    // Method to check if the stack is full
+    public boolean isFull() {
+        return top == maxSize - 1;
+    }
 }
+
+class StackExample {
+    public static void main(String[] args) {
+        DSA stack = new DSA(5);
+
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+
+        stack.pop(); // 30 should be popped
+        stack.peek(); // 20 should be at the top
+
+        stack.push(40);
+        stack.push(50);
+        stack.push(60); // Should display stack is full
+
+        stack.pop(); // 50 should be popped
+        stack.pop(); // 40 should be popped
+    }
+}
+
 
