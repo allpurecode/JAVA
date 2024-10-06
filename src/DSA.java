@@ -1168,3 +1168,77 @@ public class DSA {
     }
 }
 
+//--------------------------------------------------------------------------------------------------------------------------------
+import java.util.Stack;
+
+public class InfixToPostfix {
+
+    // Function to check if the character is an operator
+    private static boolean isOperator(char c) {
+        return c == '+' || c == '-' || c == '*' || c == '/';
+    }
+
+    // Function to get precedence of an operator
+    private static int precedence(char c) {
+        switch (c) {
+            case '+':
+            case '-':
+                return 1;
+            case '*':
+            case '/':
+                return 2;
+        }
+        return -1;
+    }
+
+    // Function to convert infix expression to postfix expression
+    public static String infixToPostfix(String expression) {
+        // Stack for operators and parentheses
+        Stack<Character> stack = new Stack<>();
+        // StringBuilder for storing the postfix expression
+        StringBuilder postfix = new StringBuilder();
+
+        // Traverse the infix expression character by character
+        for (int i = 0; i < expression.length(); i++) {
+            char ch = expression.charAt(i);
+
+            // If the character is an operand, add it to the output
+            if (Character.isLetterOrDigit(ch)) {
+                postfix.append(ch);
+            }
+            // If the character is a left parenthesis, push it to the stack
+            else if (ch == '(') {
+                stack.push(ch);
+            }
+            // If the character is a right parenthesis, pop until left parenthesis is found
+            else if (ch == ')') {
+                while (!stack.isEmpty() && stack.peek() != '(') {
+                    postfix.append(stack.pop());
+                }
+                stack.pop(); // Remove '(' from the stack
+            }
+            // If the character is an operator
+            else if (isOperator(ch)) {
+                while (!stack.isEmpty() && precedence(ch) <= precedence(stack.peek())) {
+                    postfix.append(stack.pop());
+                }
+                stack.push(ch);
+            }
+        }
+
+        // Pop the remaining operators from the stack
+        while (!stack.isEmpty()) {
+            postfix.append(stack.pop());
+        }
+
+        return postfix.toString();
+    }
+
+    // Main method for testing
+    public static void main(String[] args) {
+        String infixExpr = "a+b*(c^d-e)^(f+g*h)-i";  // Example infix expression
+        String postfixExpr = infixToPostfix(infixExpr);
+        System.out.println("Postfix Expression: " + postfixExpr);
+    }
+}
+
