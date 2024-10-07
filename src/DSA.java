@@ -1241,4 +1241,34 @@ public class InfixToPostfix {
         System.out.println("Postfix Expression: " + postfixExpr);
     }
 }
+// REVERSE STACK --------------------------------------------------------------------------------------------
+import java.util.Stack;
+
+public class DSA {
+    public static void reverseStack(Stack<Integer> stack) {
+        Stack<Integer> tempStack = new Stack<>();
+
+        // Transfer all elements from the original stack to the temporary stack
+        while (!stack.isEmpty()) {
+            tempStack.push(stack.pop());
+        }
+
+        // Now transfer back the elements to the original stack, which reverses the order
+        while (!tempStack.isEmpty()) {
+            stack.push(tempStack.pop());
+        }
+    }
+
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+
+        System.out.println("Original Stack: " + stack);
+        reverseStack(stack);
+        System.out.println("Reversed Stack: " + stack);
+    }
+}
 
