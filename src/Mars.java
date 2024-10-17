@@ -24,4 +24,107 @@ public class Mars {
 
 
 }
+class CircularQueue {
+    private int[] queue;     // Array to store queue elements
+    private int front, rear; // Front and rear pointers
+    private int size;        // Maximum size of the queue
+
+    // Constructor to initialize the queue
+    public CircularQueue(int size) {
+        this.size = size;
+        queue = new int[size];
+        front = -1;   // Initially, queue is empty
+        rear = -1;
+    }
+
+    // Method to insert an element into the circular queue (Enqueue)
+    public void enqueue(int element) {
+        // Check if the queue is full
+        if ((rear + 1) % size == front) {
+            System.out.println("Queue is full (Overflow).");
+            return;
+        }
+
+        // If the queue is empty, set both front and rear to 0
+        if (front == -1) {
+            front = 0;
+            rear = 0;
+        } else {
+            // Increment rear in a circular way
+            rear = (rear + 1) % size;
+        }
+
+        // Insert the element at the rear position
+        queue[rear] = element;
+        System.out.println("Inserted " + element);
+    }
+
+    // Method to delete an element from the circular queue (Dequeue)
+    public int dequeue() {
+        // Check if the queue is empty
+        if (front == -1) {
+            System.out.println("Queue is empty (Underflow).");
+            return -1;
+        }
+
+        // Retrieve the element at the front
+        int element = queue[front];
+
+        // If front equals rear, this was the last element, so reset both front and rear
+        if (front == rear) {
+            front = -1;
+            rear = -1;
+        } else {
+            // Increment front in a circular way
+            front = (front + 1) % size;
+        }
+
+        System.out.println("Deleted " + element);
+        return element;
+    }
+
+    // Method to display the current state of the queue
+    public void display() {
+        if (front == -1) {
+            System.out.println("Queue is empty.");
+            return;
+        }
+        System.out.print("Queue: ");
+        int i = front;
+        while (true) {
+            System.out.print(queue[i] + " ");
+            if (i == rear) break;
+            i = (i + 1) % size;
+        }
+        System.out.println();
+    }
+}
+
+public class Mars {
+    public static void main(String[] args) {
+        CircularQueue cq = new CircularQueue(5); // Creating a circular queue of size 5
+
+        cq.enqueue(10);
+        cq.enqueue(20);
+        cq.enqueue(30);
+        cq.display(); // Queue: 10 20 30
+
+        cq.dequeue(); // Deleted 10
+        cq.display(); // Queue: 20 30
+
+        cq.enqueue(40);
+        cq.enqueue(50);
+        cq.display(); // Queue: 20 30 40 50
+
+        cq.enqueue(60); // Should wrap around and insert at the front
+        cq.display(); // Queue: 20 30 40 50 60
+
+        cq.dequeue(); // Deleted 20
+        cq.dequeue(); // Deleted 30
+        cq.display(); // Queue: 40 50 60
+
+        cq.enqueue(70); // Insert at the position freed by dequeuing 20 and 30
+        cq.display(); // Queue: 40 50 60 70
+    }
+}
 
