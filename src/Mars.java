@@ -128,3 +128,36 @@ public class Mars {
     }
 }
 
+import java.util.Arrays;
+
+public class FibonacciGenerator {
+
+    public static int[] generateFibonacci(int n) {
+        // Handle the base cases
+        if (n <= 0) {
+            return new int[0];  // Return an empty array for non-positive N
+        } else if (n == 1) {
+            return new int[]{0};  // Return the first Fibonacci number
+        } else if (n == 2) {
+            return new int[]{0, 1};  // Return the first two Fibonacci numbers
+        }
+
+        // Initialize the array with the first two Fibonacci numbers
+        int[] fibonacciNumbers = new int[n];
+        fibonacciNumbers[0] = 0;
+        fibonacciNumbers[1] = 1;
+
+        // Generate Fibonacci numbers up to N
+        for (int i = 2; i < n; i++) {
+            fibonacciNumbers[i] = fibonacciNumbers[i - 1] + fibonacciNumbers[i - 2];  // Next Fibonacci number
+        }
+
+        return fibonacciNumbers;
+    }
+
+    public static void main(String[] args) {
+        int N = 10;  // Change this value to generate more or fewer Fibonacci numbers
+        int[] fibNumbers = generateFibonacci(N);
+        System.out.println("The first " + N + " Fibonacci numbers are: " + Arrays.toString(fibNumbers));
+    }
+}
