@@ -127,8 +127,8 @@ public class Mars {
         cq.display(); // Queue: 40 50 60 70
     }
 }
+//---------------------------------------------------------------------------------------------------------------------
 
-import java.util.Arrays;
 
 public class FibonacciGenerator {
 
