@@ -125,6 +125,7 @@ public class Mars {
 
         cq.enqueue(70); // Insert at the position freed by dequeuing 20 and 30
         cq.display(); // Queue: 40 50 60 70
+
     }
 }
 //---------------------------------------------------------------------------------------------------------------------
