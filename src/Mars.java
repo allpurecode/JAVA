@@ -101,6 +101,7 @@ class CircularQueue {
 }
 
 public class Mars {
+
     public static void main(String[] args) {
         CircularQueue cq = new CircularQueue(5); // Creating a circular queue of size 5
 
