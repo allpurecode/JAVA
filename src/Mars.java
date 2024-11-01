@@ -10,6 +10,7 @@ public class Mars {
         String original = "";
         for (int i = 0; i < number; i++) {
             original = original + "SOS";
+
         }
         System.out.println(original);
         for (int i = 0; i < received.length(); i++) {
