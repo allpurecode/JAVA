@@ -1166,6 +1166,7 @@ public class DSA {
         int result = evaluatePostfix(postfix);
         System.out.println("The result of the postfix expression is: " + result);
     }
+
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------
