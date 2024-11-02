@@ -1190,6 +1190,7 @@ public class InfixToPostfix {
                 return 2;
         }
         return -1;
+
     }
 
     // Function to convert infix expression to postfix expression
