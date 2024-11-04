@@ -991,8 +991,8 @@ public class DSA {
     }
 }*/
 // week 5------------------------------------------------------------------------------------------------------------------------------------
-// IMPLEMENTATION OF STACKS
-/*class DSA {
+/*// IMPLEMENTATION OF STACKS
+class DSA {
     private int maxSize;
     private int top;
     private int[] stackArray;
@@ -1066,8 +1066,9 @@ class StackExample {
         stack.pop(); // 50 should be popped
         stack.pop(); // 40 should be popped
     }
-}
-*/
+}*/
+
+
 // BLANCED PARENTHESE---------------------------------------------------------------------------------------------------------
 /*import java.util.Stack;
 
@@ -1089,6 +1090,7 @@ class BalancedParenthesisChecker {
                 if (stack.isEmpty()) {
                     return false;
                 }
+
                 char top = stack.pop();
                 // Check if the current closing parenthesis matches the last open one
                 if ((current == ')' && top != '(') ||
@@ -1106,13 +1108,15 @@ class BalancedParenthesisChecker {
     public static void main(String[] args) {
         String expression1 = "{()()}";
         String expression2 = "{()[)}";
+        String expression3="(){}[]";
 
         System.out.println(expression1 + " : " + isBalanced(expression1));  // true
         System.out.println(expression2 + " : " + isBalanced(expression2));  // false
+        System.out.println(expression3 + " : " + isBalanced(expression3));
     }
 }*/
 // EVALUATION OF POSTFIX EXPRESSION ---------------------------------------------------------------------------------------------------------
-import java.util.Stack;
+/*import java.util.Stack;
 import java.util.Stack;
 
 public class DSA {
@@ -1168,11 +1172,11 @@ public class DSA {
     }
 
 }
-
+*/
 //--------------------------------------------------------------------------------------------------------------------------------
 import java.util.Stack;
 
-public class InfixToPostfix {
+public class DSA{
 
     // Function to check if the character is an operator
     private static boolean isOperator(char c) {
@@ -1241,18 +1245,22 @@ public class InfixToPostfix {
         String infixExpr = "a+b*(c^d-e)^(f+g*h)-i";  // Example infix expression
         String postfixExpr = infixToPostfix(infixExpr);
         System.out.println("Postfix Expression: " + postfixExpr);
+
     }
 }
 // REVERSE STACK --------------------------------------------------------------------------------------------
-
+/*import java.util.Stack;
 
 public class DSA {
+
+    // Method to reverse the stack
     public static void reverseStack(Stack<Integer> stack) {
         Stack<Integer> tempStack = new Stack<>();
 
         // Transfer all elements from the original stack to the temporary stack
         while (!stack.isEmpty()) {
             tempStack.push(stack.pop());
+            System.out.println("tempStack: " + tempStack);
         }
 
         // Now transfer back the elements to the original stack, which reverses the order
@@ -1262,15 +1270,17 @@ public class DSA {
     }
 
     public static void main(String[] args) {
-         Stack<Integer> stack = new Stack<>();
+        Stack<Integer> stack = new Stack<>();
         stack.push(1);
         stack.push(2);
         stack.push(3);
         stack.push(4);
+        stack.push(5);
 
         System.out.println("Original Stack: " + stack);
         reverseStack(stack);
-        System.out.println("Reversed Stack: " + stack);
+
+        System.out.println("Reversed Stack: " + tempStack);
     }
 }
-
+*/

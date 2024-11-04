@@ -101,7 +101,7 @@ class CircularQueue {
     }
 }
 
-public class Mars {
+/*public class Mars {
 
     public static void main(String[] args) {
         CircularQueue cq = new CircularQueue(5); // Creating a circular queue of size 5
@@ -164,3 +164,4 @@ public class FibonacciGenerator {
         System.out.println("The first " + N + " Fibonacci numbers are: " + Arrays.toString(fibNumbers));
     }
 }
+*/
